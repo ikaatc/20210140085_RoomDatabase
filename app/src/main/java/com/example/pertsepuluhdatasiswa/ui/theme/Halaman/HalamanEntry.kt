@@ -29,6 +29,7 @@ import com.example.pertsepuluhdatasiswa.model.EntryViewModel
 import com.example.pertsepuluhdatasiswa.model.PenyediaViewModel
 import com.example.pertsepuluhdatasiswa.model.UIStateSiswa
 import com.example.pertsepuluhdatasiswa.navigasi.DestinasiNavigasi
+import com.example.pertsepuluhdatasiswa.navigasi.SiswaTopAppBar
 import kotlinx.coroutines.launch
 
 object DestinasiEntry: DestinasiNavigasi {
@@ -48,7 +49,13 @@ fun EntrySiswaScreen(
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {}
+        topBar = {
+            SiswaTopAppBar(
+                title = stringResource(DestinasiEntry.titleRes),
+                canNavigateBack = true,
+                scrollBehavior = scrollBehavior
+            )
+        }
     ) { innerPadding ->
         EntrySiswaBody(
             uiStateSiswa = viewModel.uiStateSiswa,
