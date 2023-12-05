@@ -47,3 +47,11 @@ fun EntrySiswaBody(
         modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))
     ) {}
 }
+
+@Composable
+fun FormInputSiswa(
+    detailSiswa: DetailSiswa,
+    modifier: Modifier = Modifier,
+    onValueChange: (DetailSiswa) -> Unit = {},
+    enabled: Boolean = true
+) {}
