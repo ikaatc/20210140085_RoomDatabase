@@ -1,4 +1,4 @@
-package com.example.pertsepuluhdatasiswa.ui.theme.Halaman
+package com.example.pertsepuluhdatasiswa.ui.theme.halaman
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
