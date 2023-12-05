@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pertsepuluhdatasiswa.R
+import com.example.pertsepuluhdatasiswa.data.Siswa
 import com.example.pertsepuluhdatasiswa.model.HomeViewModel
 import com.example.pertsepuluhdatasiswa.model.PenyediaViewModel
 import com.example.pertsepuluhdatasiswa.navigasi.DestinasiNavigasi
@@ -26,3 +27,9 @@ fun HomeScreen(
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 }
+
+@Composable
+fun BodyHome(
+    itemSiswa : List<Siswa>,
+    modifier: Modifier = Modifier
+) {}
