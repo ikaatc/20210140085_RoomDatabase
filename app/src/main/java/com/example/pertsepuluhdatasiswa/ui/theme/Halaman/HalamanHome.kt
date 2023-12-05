@@ -34,6 +34,7 @@ import com.example.pertsepuluhdatasiswa.data.Siswa
 import com.example.pertsepuluhdatasiswa.model.HomeViewModel
 import com.example.pertsepuluhdatasiswa.model.PenyediaViewModel
 import com.example.pertsepuluhdatasiswa.navigasi.DestinasiNavigasi
+import com.example.pertsepuluhdatasiswa.navigasi.SiswaTopAppBar
 
 object DestinasiHome: DestinasiNavigasi {
     override val route = "home"
@@ -49,7 +50,16 @@ fun HomeScreen(
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
-    Scaffold() {
+    Scaffold(
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            SiswaTopAppBar(
+                title = stringResource(DestinasiHome.titleRes),
+                canNavigateBack = false,
+                scrollBehavior = scrollBehavior
+            )
+        }
+    ) {
         innerPadding ->
         val uiStateSiswa by viewModel.homeUiState.collectAsState()
         BodyHome(
