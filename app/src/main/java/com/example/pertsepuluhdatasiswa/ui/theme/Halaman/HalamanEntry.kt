@@ -52,7 +52,13 @@ fun EntrySiswaBody(
     Column (
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_large)),
         modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))
-    ) {}
+    ) {
+        FormInputSiswa(
+            detailSiswa = uiStateSiswa.detailSiswa,
+            onValueChange = onSiswaValueChange,
+            modifier = modifier.fillMaxWidth()
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
