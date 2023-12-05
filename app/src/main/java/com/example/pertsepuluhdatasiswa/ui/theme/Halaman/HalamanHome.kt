@@ -2,6 +2,8 @@ package com.example.pertsepuluhdatasiswa.ui.theme.Halaman
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -61,6 +63,23 @@ fun BodyHome(
 }
 
 @Composable
-fun ListSiswa(itemSiswa: List<Siswa>, modifier: Any) {
-    TODO("Not yet implemented")
+fun ListSiswa(
+    itemSiswa: List<Siswa>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(modifier = modifier) {
+        items(items = itemSiswa, key = {it.id}) {
+            person ->
+            DataSiswa(
+                siswa = person,
+                modifier = Modifier
+                    .padding(dimensionResource(id = R.dimen.padding_small))
+            )
+        }
+    }
+}
+
+@Composable
+fun DataSiswa(siswa: Siswa, modifier: Modifier) {
+
 }
