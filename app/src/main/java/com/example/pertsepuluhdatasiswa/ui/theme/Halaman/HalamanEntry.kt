@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,6 +29,7 @@ import com.example.pertsepuluhdatasiswa.model.EntryViewModel
 import com.example.pertsepuluhdatasiswa.model.PenyediaViewModel
 import com.example.pertsepuluhdatasiswa.model.UIStateSiswa
 import com.example.pertsepuluhdatasiswa.navigasi.DestinasiNavigasi
+import kotlinx.coroutines.launch
 
 object DestinasiEntry: DestinasiNavigasi {
     override val route = "item_entry"
@@ -42,6 +45,26 @@ fun EntrySiswaScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+
+    Scaffold(
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {}
+    ) { innerPadding ->
+        EntrySiswaBody(
+            uiStateSiswa = viewModel.uiStateSiswa,
+            onSiswaValueChange = viewModel::updateUiState,
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.saveSiswa()
+                    navigateBack
+                }
+            },
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
+        )
+    }
 }
 
 @Composable
