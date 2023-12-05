@@ -135,7 +135,7 @@ fun FormInputSiswa(
             value = detailSiswa.telpon,
             onValueChange ={onValueChange(detailSiswa.copy(telpon = it))},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text(stringResource(R.string.alamat)) },
+            label = { Text(stringResource(R.string.telpon)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled
